@@ -72,6 +72,7 @@ int main() {
   // Variáveis para a Carta 1
   unsigned long int pop1;
   double area1, pib1;
+  int pontos1;
   float densidade1, pibPerCapita1, superPoder1;
   
   // Variáveis para a Carta 2
