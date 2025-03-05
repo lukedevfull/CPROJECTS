@@ -1,22 +1,23 @@
 #include <stdio.h>
 
 // Declaração das variáveis globais 
-char cardId[50];
-char states[50];
-char code[50];
-char city[50];
-int population;
-double area;
-double pib;  
-float pibPerCapita;
-float popDensity;
-int numberOfTuristcPoints;
-double cardPower;
+char cardId[50];          // Armazena o ID da carta
+char states[50];          // Armazena o estado associado à carta
+char code[50];            // Armazena o código da carta
+char city[50];            // Armazena a cidade associada à carta
+int population;           // Armazena a população da cidade
+double area;              // Armazena a área da cidade em KM²
+double pib;               // Armazena o PIB da cidade
+float pibPerCapita;       // Armazena o PIB per capita da cidade
+float popDensity;         // Armazena a densidade populacional da cidade (hab/KM²)
+int numberOfTuristcPoints; // Armazena o número de pontos turísticos da cidade
+double cardPower;         // Armazena o poder da carta, calculado com base em vários fatores
 
-// Declaração das funções !!(fora da main)!!
+
+// Função para coletar os dados da carta
 void getCardData() {
   printf("Enter the card id: \n");
-  scanf("%49s", cardId); // Limita a 49 caracteres para evitar !!overflow
+  scanf("%49s", cardId); // Limita a 49 caracteres para evitar overflow
   
   printf("Enter the state: \n");
   scanf("%49s", states);
@@ -33,16 +34,19 @@ void getCardData() {
   printf("Enter the area(KM): \n");
   scanf("%lf", &area);
   
+  // Calcula a densidade populacional
   popDensity = (float)population / area;
   
   printf("Enter the PIB: \n");
   scanf("%lf", &pib);
   
+  // Calcula o PIB per capita
   pibPerCapita = (float)pib / population;
   
   printf("Enter the number of tourist points in the city: \n");
   scanf("%d", &numberOfTuristcPoints);
   
+  // Calcula o poder da carta com base em uma fórmula específica
   cardPower = ((int)( 1 / popDensity) - 
   ((int)(pibPerCapita +
     numberOfTuristcPoints +
@@ -50,9 +54,10 @@ void getCardData() {
     pib +
     population + 
     numberOfTuristcPoints)
-  ));
+  );
 }
 
+// Função para imprimir os dados da carta
 void printCardData() {
   printf("\nThe card id: %s\n", cardId);
   printf("The state: %s\n", states);
@@ -67,20 +72,21 @@ void printCardData() {
   printf("The card power is: %.2d\n", cardPower);
 }
 
-
+// Função principal
 int main() {
   // Variáveis para a Carta 1
-  unsigned long int pop1;
-  double area1, pib1;
-  int pontos1;
-  float densidade1, pibPerCapita1, superPoder1;
+  unsigned long int pop1;        // População da Carta 1
+  double area1, pib1;            // Área e PIB da Carta 1
+  int pontos1;                   // Pontos turísticos da Carta 1
+  float densidade1, pibPerCapita1, superPoder1; // Densidade, PIB per capita e poder da Carta 1
   
   // Variáveis para a Carta 2
-  unsigned long int pop2;
-  double area2, pib2;
-  int pontos2;
-  float densidade2, pibPerCapita2, superPoder2;
+  unsigned long int pop2;        // População da Carta 2
+  double area2, pib2;            // Área e PIB da Carta 2
+  int pontos2;                   // Pontos turísticos da Carta 2
+  float densidade2, pibPerCapita2, superPoder2; // Densidade, PIB per capita e poder da Carta 2
 
+  // Variável para armazenar a escolha do usuário
   unsigned int option;
   printf("Escolha uma opção:\n");
   printf("1 - Jogar\n");
@@ -90,6 +96,7 @@ int main() {
   switch (option)
   {
     case 1:
+      // Coleta os dados da primeira carta
       getCardData();
       pop1 = population;
       area1 = area;
@@ -99,6 +106,7 @@ int main() {
       pibPerCapita1 = pibPerCapita;
       superPoder1 = cardPower;
 
+      // Coleta os dados da segunda carta
       getCardData();
       pop2 = population;
       area2 = area;
@@ -110,11 +118,11 @@ int main() {
     break;
   
   default:
+    // Caso o usuário escolha sair ou uma opção inválida
     break;
   }
 
- 
-  
+  // Exibe o resultado da batalha entre as cartas
   printf("Batalha entre as cartas:\n");
   printf("População: %s \n", (pop1 > pop2 ? "Carta 1" : "Carta 2"));
   printf("Área: %s \n", (area1 > area2 ? "Carta 1" : "Carta 2"));
@@ -127,4 +135,4 @@ int main() {
   return 0;
 }
 
-//Tempo de projeto de 1,5 horas
+// Tempo de projeto de 1,5 horas
