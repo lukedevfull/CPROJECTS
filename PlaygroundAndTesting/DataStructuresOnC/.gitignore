@@ -5,6 +5,7 @@
 *.o
 *.obj
 BinarySearch
+
 LinearLists
 
 # Arquivos de configuração do VS Code
