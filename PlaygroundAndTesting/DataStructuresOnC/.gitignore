@@ -1,0 +1,29 @@
+# Compilados e executáveis
+*.exe
+*.out
+*.app
+*.o
+*.obj
+BinarySearch
+LinearLists
+
+# Arquivos de configuração do VS Code
+.vscode/
+tasks.json
+launch.json
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.temp
+*~
+
+# Arquivos de log
+*.log
+
+# Arquivos de backup
+*.bak
+*.backup
