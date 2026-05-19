@@ -37,8 +37,7 @@ int main() {
     int result = buscaBinaria(inteiros,size, target);
     printf("ENCONTRADO EM: %d\n", result);
 
-    printf("==========================\n");
-    
+    printf("==========================\n");    
     int result2 = linearSearch(inteiros, target, size);
     printf("ENCONTRADO EM: %d\n", result2);
     return 0;
